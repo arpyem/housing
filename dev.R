@@ -1,5 +1,6 @@
 library(rvest)
 library(tidyverse)
+library(httr)
 
 URL = 'https://www.sarasotafloridarealestate.com/market-statistics/'
 
@@ -126,6 +127,22 @@ manatee = html %>%
 
 manatee %>%
    pluck('name')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
