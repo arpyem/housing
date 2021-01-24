@@ -26,3 +26,27 @@ In addition: Warning message:
 In gzfile(file, mode) :
   cannot open compressed file '2021-01-24_srq.rds', probable reason 'Permission denied'
 Execution halted
+Loading required package: xml2
+2021-01-24 11:57:00
+Error in gzfile(file, mode) : cannot open the connection
+Calls: saveRDS -> gzfile
+In addition: Warning message:
+In gzfile(file, mode) :
+  cannot open compressed file '2021-01-24_srq.rds', probable reason 'Permission denied'
+Execution halted
+Loading required package: xml2
+2021-01-24 12:06:00
+Error in gzfile(file, mode) : cannot open the connection
+Calls: saveRDS -> gzfile
+In addition: Warning message:
+In gzfile(file, mode) :
+  cannot open compressed file '2021-01-24_srq.rds', probable reason 'Permission denied'
+Execution halted
+Loading required package: xml2
+2021-01-24 12:07:29
+Loading required package: xml2
+2021-01-24 12:08:01
+Loading required package: xml2
+2021-01-24 12:08:55
+Loading required package: xml2
+2021-01-24 12:09:34
