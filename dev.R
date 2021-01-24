@@ -1,5 +1,6 @@
 library(rvest)
 library(tidyverse)
+library(httr)
 
 URL = 'https://www.sarasotafloridarealestate.com/market-statistics/'
 
@@ -126,6 +127,38 @@ manatee = html %>%
 
 manatee %>%
    pluck('name')
+
+
+
+
+
+
+
+
+
+URL_zillow_homeValues = 'https://files.zillowstatic.com/research/public_v2/zhvi/Metro_zhvi_uc_sfrcondo_tier_0.33_0.67_sm_sa_mon.csv'
+r = GET(URL)
+content(r)
+
+URL_zillow_rentals = 'https://files.zillowstatic.com/research/public_v2/zori/Metro_ZORI_AllHomesPlusMultifamily_SSA.csv'
+r = GET(URL)
+content(r)
+
+URL_zillow_inventorySales = 'https://files.zillowstatic.com/research/public_v2/invt_fs/Metro_invt_fs_uc_sfrcondo_smoothed_month.csv'
+r = GET(URL)
+content(r)
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
