@@ -132,6 +132,55 @@ manatee %>%
 
 
 
+test = read_html('https://www.sarasotafloridarealestate.com/idx/results/?searchid=85533')
+
+test %>% html_nodes('.si-listings-column--right') 
+
+test %>% html_nodes('.si-listing__price-title')
+test %>%
+      html_nodes('.si-listing__content')
+test %>% html_nodes(xpath = '#lw8707006 > div > div.si-listings-column--right > div')
+
+
+
+test = html_session('https://www.sarasotafloridarealestate.com/idx/results/?searchid=85533')
+form = html_form(test)[[1]]
+form = set_values(test)
+
+
+html_form(test)
+
+
+test = httr::POST(
+      url = 'https://www.sarasotafloridarealestate.com/property-search/res/includes/search_application/get_listings.asp', 
+      body = list(pageSize = 343)
+)
+
+
+test = httr::POST(
+      url = 'https://www.sarasotafloridarealestate.com/idx/results/?searchid=85533', 
+      body = list(pageSize = 343)
+)
+
+
+test = GET(
+      url = 'https://www.sarasotafloridarealestate.com/property-search/res/includes/search_application/get_listings.asp',
+      add_headers(
+            Referer = 'https://www.sarasotafloridarealestate.com/idx/results/?searchid=85533',
+            `X-Requested-With` = 'XMLHttpRequest'
+      ),
+      query = list(
+            
+      )
+)
+
+
+
+
+{"searchType":"list","adminUserId":608,"clientSearch":{"id":"281521689","active":false,"type":1,"featuredFirst":false},"favorite":false,"mlsRegionId":29,"mlsRegions":"29","listingClass":1,"listingStatus":"Active,Pending","quickSearch":{"mls":"","address":"","type":-1},"search":{"acreage":{"max":"","min":""},"age":{"min":0},"baths":{"max":100,"min":""},"beds":{"max":100,"min":""},"daysOnMarket":"","extra":{"basement":"","construction":"","energy":"","exterior":"","fencing":"","interior":"","lots":"","owner":"","stories":"","styles":"","searchFeatures":""},"filter":{"excludeMLSIds":"","includeAgentIds":"","includeMLSIds":"","includeOfficeIds":""},"flags":{"acrossStreetFromOcean":false,"bayFront":false,"beachfront":false,"equestrian":false,"foreclosure":false,"golfCourseFront":false,"gulfFront":false,"hdPhotos":false,"hudHome":false,"mbOnFirstFloor":false,"newConstruction":false,"oceanFront":false,"openHouse":false,"pool":false,"reo":false,"shortSale":false,"singleLevel":false,"spa":false,"viewScenic":false,"virtualTour":false,"waterFront":false,"woodedLot":false,"hasPhoto":false},"garageCap":{"min":""},"hoaFees":{"max":"","min":""},"supportedListTypes":"1,3,4,8","listType":"1","listTypeDescrip":"","location":{"areas":"","cities":"","condoProjectNames":"","counties":"","schools":"","states":"","subAreas":"","subDivisions":"","townships":"","zips":"","elementarySchools":"","middleSchools":"","highSchools":"","juniorHighSchools":""},"map":{"eastLong":"","northLat":"","searchRegion":"POLYGON ((-82.552042007446289 27.34569656020296, -82.531013488769531 27.344019284933722, -82.5307559967041 27.327168883991792, -82.557363510131836 27.324423779690932, -82.552042007446289 27.34569656020296))","southLat":"","westLong":"","centerLat":27.335,"centerLong":-82.5433,"zoomLevel":11},"alert":{"startDate":"","priceChangeDate":""},"price":{"max":"","min":""},"priceReductionPercentage":"","soldDays":"","openHouseDays":0,"openHouseType":0,"priceChangeDays":0,"sortBy":"m.DateListed DESC","sqft":{"max":"","min":""},"yearBuilt":{"max":"","min":""},"offset":{"pageSize":12,"pageNumber":1,"listingId":""},"statusActivityDays":""},"searchId":85533,"userId":""}
+
+
+https://www.sarasotafloridarealestate.com/property-search/res/includes/search_application/get_listings.asp
 
 
 
@@ -141,4 +190,33 @@ manatee %>%
 
 
 
+
+
+
+
+
+url = 'https://www.sarasotafloridarealestate.com/downtown-sarasota/'
+test = read_html(url)
+test %>%
+      html_nodes('.si-listing__price-title')
+
+
+
+
+
+
+
+df %>%
+      filter(RegionName == '34236') %>%
+      pivot_longer(cols = -RegionID:-CountyName, names_to = 'date', values_to = 'value') %>%
+      mutate(date = ymd(date)) %>%
+      ggplot(aes(x = date, y = value)) +
+      geom_line() +
+      theme_minimal()
+
+
+df = readRDS('zillow/home_values_city.rds')
+
+df %>%
+      filter()
 
