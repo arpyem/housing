@@ -1,5 +1,5 @@
 library(rvest)
-etwd("~/Projects/housing")
+setwd("~/Projects/housing")
 message(Sys.time())
 file = file.path('data', paste0(Sys.Date(), '_srq.html'))
 URL = 'https://www.sarasotafloridarealestate.com/market-statistics/'
